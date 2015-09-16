@@ -17,59 +17,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UEW-wl-ljv" customClass="DrawView" customModule="LetterChat" customModuleProvider="target">
-                                <rect key="frame" x="23" y="53" width="561" height="498"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UEW-wl-ljv" customClass="DrawView" customModule="LetterChat" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="58" width="600" height="493"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="53" width="800" height="698"/>
+                                    <rect key="frame" x="0.0" y="71" width="800" height="680"/>
                                 </variation>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tna-cL-paH">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tna-cL-paH">
                                 <rect key="frame" x="226" y="15" width="149" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="149" id="FNE-5F-OEo"/>
-                                    <constraint firstAttribute="height" constant="30" id="un9-dB-9cr"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <state key="normal" title="Clear">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="354" y="15" width="92" height="30"/>
+                                    <rect key="frame" x="326" y="15" width="149" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="clearTapped" destination="9pv-A4-QxB" eventType="touchUpInside" id="anw-Yi-DCI"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tds-jv-Yq2">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tds-jv-Yq2">
                                 <rect key="frame" x="435" y="15" width="149" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="149" id="BWN-Zq-h0o"/>
-                                    <constraint firstAttribute="height" constant="30" id="s5f-7g-Rdr"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <state key="normal" title="Red">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="354" y="15" width="92" height="30"/>
+                                    <rect key="frame" x="635" y="15" width="149" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="changeColour:" destination="9pv-A4-QxB" eventType="touchUpInside" id="ZbW-tv-WLh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ER-Hc-nC5">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ER-Hc-nC5">
                                 <rect key="frame" x="16" y="9" width="149" height="41"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="qMM-qW-1s7"/>
-                                    <constraint firstAttribute="width" constant="149" id="r9i-bH-0vJ"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <state key="normal" title="Black">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="354" y="15" width="92" height="30"/>
+                                    <rect key="frame" x="0.0" y="15" width="92" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="changeColour:" destination="9pv-A4-QxB" eventType="touchUpInside" id="DI3-pa-vt9"/>
@@ -78,12 +66,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="UEW-wl-ljv" secondAttribute="bottom" id="8bq-C0-LK8"/>
-                            <constraint firstItem="UEW-wl-ljv" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="7" id="9DB-yB-fnh"/>
-                            <constraint firstItem="UEW-wl-ljv" firstAttribute="top" secondItem="Tna-cL-paH" secondAttribute="bottom" constant="8" symbolic="YES" id="CBZ-kr-ZrI"/>
-                            <constraint firstItem="UEW-wl-ljv" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="ZLz-kK-WaE"/>
-                            <constraint firstItem="Tna-cL-paH" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="dCj-pC-sS6"/>
-                            <constraint firstItem="Tna-cL-paH" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="topMargin" constant="15" id="h2p-Ww-PUT"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UEW-wl-ljv" secondAttribute="trailing" id="1ig-cd-suU"/>
+                            <constraint firstItem="Tna-cL-paH" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="topMargin" constant="15" id="7il-7g-fAI"/>
+                            <constraint firstItem="2ER-Hc-nC5" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="topMargin" constant="15" id="DOF-9x-SWN"/>
+                            <constraint firstItem="UEW-wl-ljv" firstAttribute="centerX" secondItem="Tna-cL-paH" secondAttribute="centerX" id="K1J-fp-dOY"/>
+                            <constraint firstItem="UEW-wl-ljv" firstAttribute="top" secondItem="2ER-Hc-nC5" secondAttribute="bottom" constant="3" id="LUt-PS-Ny8"/>
+                            <constraint firstItem="UEW-wl-ljv" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" constant="48" id="N2c-aH-by3"/>
+                            <constraint firstItem="Tds-jv-Yq2" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="topMargin" constant="15" id="R2Y-jQ-wvQ"/>
+                            <constraint firstItem="UEW-wl-ljv" firstAttribute="top" secondItem="Tds-jv-Yq2" secondAttribute="bottom" constant="3" id="WFc-rp-lQM"/>
+                            <constraint firstItem="UEW-wl-ljv" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="h5O-hB-5rp"/>
+                            <constraint firstItem="Tds-jv-Yq2" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="nXN-ir-L6e"/>
+                            <constraint firstItem="UEW-wl-ljv" firstAttribute="bottom" secondItem="4ug-Mw-9AY" secondAttribute="top" id="oa7-05-WyR"/>
+                            <constraint firstItem="2ER-Hc-nC5" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="15" id="zXm-5A-4C0"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
