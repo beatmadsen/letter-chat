@@ -14,6 +14,7 @@
 		365C24E21BA47A0D00A731B2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 365C24E11BA47A0D00A731B2 /* Images.xcassets */; };
 		365C24E51BA47A0D00A731B2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 365C24E31BA47A0D00A731B2 /* LaunchScreen.xib */; };
 		365C24F11BA47A0D00A731B2 /* LetterChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365C24F01BA47A0D00A731B2 /* LetterChatTests.swift */; };
+		365C24FB1BA47C4500A731B2 /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365C24FA1BA47C4500A731B2 /* DrawView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		365C24EA1BA47A0D00A731B2 /* LetterChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LetterChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		365C24EF1BA47A0D00A731B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		365C24F01BA47A0D00A731B2 /* LetterChatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterChatTests.swift; sourceTree = "<group>"; };
+		365C24FA1BA47C4500A731B2 /* DrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			children = (
 				365C24D81BA47A0C00A731B2 /* AppDelegate.swift */,
 				365C24DA1BA47A0D00A731B2 /* FirstViewController.swift */,
+				365C24FA1BA47C4500A731B2 /* DrawView.swift */,
 				365C24DC1BA47A0D00A731B2 /* SecondViewController.swift */,
 				365C24DE1BA47A0D00A731B2 /* Main.storyboard */,
 				365C24E11BA47A0D00A731B2 /* Images.xcassets */,
@@ -217,6 +220,7 @@
 			files = (
 				365C24DD1BA47A0D00A731B2 /* SecondViewController.swift in Sources */,
 				365C24D91BA47A0C00A731B2 /* AppDelegate.swift in Sources */,
+				365C24FB1BA47C4500A731B2 /* DrawView.swift in Sources */,
 				365C24DB1BA47A0D00A731B2 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,6 +419,7 @@
 				365C24F61BA47A0D00A731B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		365C24F71BA47A0D00A731B2 /* Build configuration list for PBXNativeTarget "LetterChatTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +428,7 @@
 				365C24F91BA47A0D00A731B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

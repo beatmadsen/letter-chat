@@ -10,6 +10,8 @@ import UIKit
 
 class FirstViewController: UIViewController {
 
+    @IBOutlet var drawView: DrawView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -19,7 +21,22 @@ class FirstViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    @IBAction func clearTapped() {
+        drawView.clearLines()
+    }
+    
+    @IBAction func changeColour(sender: UIButton) {
+        switch sender.titleLabel?.text {
+        case .Some("Red"):
+            drawView.colour = UIColor.redColor()
+        case .Some("Black"):
+            drawView.colour = UIColor.blackColor()
+        default:
+            42
+        }
+    }
+    
 
 }
 
