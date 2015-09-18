@@ -17,7 +17,7 @@ class DrawView: UIView {
     
     private var path: UIBezierPath = UIBezierPath()
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         self.multipleTouchEnabled = false
@@ -25,36 +25,40 @@ class DrawView: UIView {
         
         path.lineWidth = 2.0
         
-        println(self.bounds.size)
+        print(self.bounds.size)
 }
     
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        if let touch = touches.first as? UITouch {
-            var p = touch.locationInView(self)
-            path.moveToPoint(p)
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let touch = touches.first
+        let p = touch?.locationInView(self)
+        
+        if let point = p {
+            path.moveToPoint(point)
         }
     }
 
     
-    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
-        if let touch = touches.first as? UITouch {
-            let newPoint = touch.locationInView(self)
-            path.addLineToPoint(newPoint)
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let touch = touches.first
+        let p = touch?.locationInView(self)
+        
+        if let point = p {
+            path.addLineToPoint(point)
             self.setNeedsDisplay()
         }
-
     }
     
     
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if incrementalImage == nil {
             drawInitialBitmap()
         }
+        let touch = touches.first
+        let p = touch?.locationInView(self)
         
-        if let touch = touches.first as? UITouch {
-            let newPoint = touch.locationInView(self)
-            path.addLineToPoint(newPoint)
+        if let point = p {
+            path.addLineToPoint(point)
             drawBitmap()
             path.removeAllPoints()
             self.setNeedsDisplay()
@@ -62,8 +66,10 @@ class DrawView: UIView {
     }
     
     
-    override func touchesCancelled(touches: Set<NSObject>!, withEvent event: UIEvent!) {
-        touchesEnded(touches, withEvent: event)
+    override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
+        if let t = touches {
+            touchesEnded(t, withEvent: event)
+        }
     }
     
     
@@ -85,7 +91,7 @@ class DrawView: UIView {
         
         doWithinGraphicsContext({
             () -> Void in
-            var rectPath = UIBezierPath(rect: self.bounds)
+            let rectPath = UIBezierPath(rect: self.bounds)
             UIColor.whiteColor().setFill()
             rectPath.fill()
             
