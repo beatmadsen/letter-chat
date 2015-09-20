@@ -14,30 +14,32 @@ class DrawView: UIView {
     
     private var incrementalImage:UIImage?
     
-    
     private var path: UIBezierPath = UIBezierPath()
     
     private var rotator: PointRotator! = nil
+    
+    private let mainQueue = dispatch_get_main_queue()
+    private let pathQueue = dispatch_get_global_queue(QOS_CLASS_USER_INTERACTIVE, 0)
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         self.rotator = PointRotator( callback: {
             points in
-            
-            self.path.moveToPoint(points[0])
-            self.path.addCurveToPoint(points[3], controlPoint1: points[1], controlPoint2: points[2])
-            self.setNeedsDisplay()
-            
-            return CGPointMake(0,0) // TODO - change signature
+            dispatch_async(self.pathQueue) {
+                self.path.moveToPoint(points[0])
+                self.path.addCurveToPoint(points[3], controlPoint1: points[1], controlPoint2: points[2])
+                
+                dispatch_async(self.mainQueue) {
+                    self.setNeedsDisplay()
+                }
+            }
         })
         
         self.multipleTouchEnabled = false
         self.backgroundColor = UIColor.whiteColor()
         
         path.lineWidth = 2.0
-        
-        
     }
     
     
@@ -136,30 +138,38 @@ class DrawView: UIView {
 
 
 class PointRotator {
-    private let onRotation: [CGPoint] -> CGPoint
+    private let onRotation: [CGPoint] -> Void
     private var points: [CGPoint] = []
+    private let bufferQueue = dispatch_queue_create("lala", DISPATCH_QUEUE_SERIAL)
     
-    init(callback: [CGPoint] -> CGPoint){
+    init(callback: [CGPoint] -> Void){
         self.onRotation = callback
     }
     
     func reset() {
-        points.removeAll(keepCapacity: true)
+        dispatch_async(bufferQueue){
+            self.points.removeAll(keepCapacity: true)
+        }
     }
     
     func append(newElement: CGPoint){
-        points.append(newElement)
-        
-        if points.count == 5 {
+        dispatch_async(bufferQueue){
             
-            let x = (points[2].x + points[4].x) / 2.0
-            let y = (points[2].y + points[4].y) / 2.0
+            self.points.append(newElement)
             
-            points[3] = CGPointMake(x, y)
-            
-            onRotation(points)
-            
-            points.removeFirst(3)
+            if self.points.count == 5 {
+                
+                let x = (self.points[2].x + self.points[4].x) / 2.0
+                let y = (self.points[2].y + self.points[4].y) / 2.0
+                
+                self.points[3] = CGPointMake(x, y)
+                
+                let p = self.points // immutable
+                
+                self.onRotation(p)
+                
+                self.points.removeFirst(3)
+            }
         }
     }
 }
